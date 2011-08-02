@@ -7,7 +7,7 @@ class BundlerGithubTest < MiniTest::Unit::TestCase
   # Let's get meta.
   def setup
     @gem = @repo = 'bundler-github'
-    @uri = lambda { "git://github.com/ambethia/#{@repo}.git" }
+    @uri = lambda { "https://github.com/ambethia/#{@repo}.git" }
   end
 
   def test_expands_uri
@@ -26,6 +26,11 @@ class BundlerGithubTest < MiniTest::Unit::TestCase
 
   def test_expands_uri_with_implicit_gem_name
     assert_equal @uri.call, expand('ambethia')
+  end
+
+  def test_expands_authenticated_uri_with_shh
+    @uri = 'git@github.com:ambethia/bundler-github.git'
+    assert_equal @uri, expand(':ambethia')
   end
 
   def expand(repository)

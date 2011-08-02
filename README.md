@@ -19,19 +19,19 @@ Usage
 In your `Gemfile` you can now replace:
 
 ``` ruby
-gem 'devise', git: 'https://github.com/plataformatec/devise.git'
+gem 'recaptcha', git: 'https://github.com/ambethia/recaptcha.git'
 ```
 
 with:
 
 ``` ruby
-gem 'devise', github: 'plataformatec/devise'
+gem 'recaptcha', github: 'ambethia/recaptcha'
 ```
 
 **But wait!** That sugar only gets sweeter! If the repository's name is the same as the gem's name (and it usally is), you can leave out the repo name and just include the repository owner.
 
 ``` ruby
-gem 'devise', github: 'plataformatec'
+gem 'recaptcha', github: 'ambethia'
 ```
 
 *How you like them apples!?*
@@ -54,9 +54,17 @@ end
 
 However, you don't *need* to require `bundler-github` from your `Gemfile`, it's already loaded by the time your application's `Gemfile` is read anyways.
 
+### Private Repositories ###
+
+By default HTTP transport is used, but you can switch to an authenticated url scheme (ssh) by prepending a `:` to the account name, like:
+
+``` ruby
+gem 'has_secrets', github: ':ambethia'
+```
+
 ### Other notes on usage ###
 
-* `bundler-github` just expands and swaps the `:github` option out for `:git`, other options, like `:branch`, `:ref`, etc. should be left untouched.
+* `bundler-github` just expands and swaps the `:github` option out for `:git`, other options, like `:branch`, `:ref`, etc. will be left untouched.
 * I may favor the Ruby 1.9 syntaxes in my examples, but the gem does not. It was developed for and tested against 1.8.7 and 1.9.x.
 
 Caveat emptor!

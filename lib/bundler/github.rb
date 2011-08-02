@@ -5,11 +5,13 @@ module Bundler
 
   module Github
 
-    URI = lambda { |user, repo| "git://github.com/#{user}/#{repo}.git" }
+    HTTP = lambda { |user, repo| "https://github.com/#{user}/#{repo}.git" }
+    SSH  = lambda { |user, repo| "git@github.com:#{user}/#{repo}.git" }
 
     def self.expand_options(name, version, opts)
       user, repo  = opts.delete('github').split('/')
-      opts['git'] = URI.call(user, repo || name)
+      transport   = user =~ /^:/ ? (user.slice!(0); SSH) : HTTP
+      opts['git'] = transport.call(user, repo || name)
     end
   end
 
