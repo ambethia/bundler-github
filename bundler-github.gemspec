@@ -1,6 +1,6 @@
 Gem::Specification.new do |spec|
   spec.name        = 'bundler-github'
-  spec.version     = '0.1.0'
+  spec.version     = '0.2.0'
   spec.authors     = ['Jason L Perry']
   spec.email       = ['jasper@ambethia.com']
   spec.homepage    = 'https://github.com/ambethia/bundler-github'
