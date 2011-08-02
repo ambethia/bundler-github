@@ -1,10 +1,9 @@
 module Bundler::Github
   module DslPatch
 
-    # The list of valid options is buried in unfortunately buried in this
-    # original method, so to add an option without reimplementing (and
-    # duplicating) code, we rescue the exception, and swap our :github option
-    # for :git, with the expanded URI
+    # The list of valid options is buried in this original method, so to add
+    # an option without reimplementing (and duplicating) code, we rescue the
+    # exception, and swap our :github option for :git, with the expanded URI
     def _normalize_options_with_github(*args)
       begin
         _normalize_options_without_github(*args)
