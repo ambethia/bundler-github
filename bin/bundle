@@ -1,0 +1,4 @@
+#!/usr/bin/env ruby
+
+require 'bundler/github'
+load Gem.bin_path('bundler', 'bundle')
