@@ -64,7 +64,7 @@ gem 'has_secrets', github: ':ambethia'
 
 ### Other notes on usage ###
 
-* `bundler-github` just expands and swaps the `:github` option out for `:git`, other options, like `:branch`, `:ref`, etc. will be left untouched.
+* `bundler-github` just catches and replaces the `:github` option with `:git` after expanding the URI, other options, like `:branch`, `:ref`, etc. will be left untouched. Also, any gems that just use `:git` don't altered either.
 * I may favor the Ruby 1.9 syntaxes in my examples, but the gem does not. It was developed for and tested against 1.8.7 and 1.9.x.
 
 Caveat emptor!
