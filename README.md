@@ -36,7 +36,7 @@ gem 'recaptcha', github: 'ambethia'
 
 *How you like them apples!?*
 
-One inconvenience I haven't figured a work around for is that you'll need to explicitly `bundler/github` before you require `bundler/setup`. In a Rails app
+One inconvenience I haven't figured a work around for is that you'll need to explicitly require `bundler/github` before you require `bundler/setup`. In a Rails app
 you might change your `boot.rb` (*oh, the humanity!*) from:
 
 ``` ruby
